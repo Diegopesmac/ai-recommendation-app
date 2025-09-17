@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Camisa de algodão",
+    "category": "Roupas",
+    "price": 29.99
+  },
+  {
+    "id": 2,
+    "name": "Livro de Python",
+    "category": "Livros",
+    "price": 45.50
+  },
+  {
+    "id": 3,
+    "name": "Fones de ouvido Bluetooth",
+    "category": "Eletrônicos",
+    "price": 199.90
+  },
+  {
+    "id": 4,
+    "name": "Garrafa térmica",
+    "category": "Casa",
+    "price": 59.90
+  },
+  {
+    "id": 5,
+    "name": "Mochila para laptop",
+    "category": "Acessórios",
+    "price": 120.00
+  }
+]
