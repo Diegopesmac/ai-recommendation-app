@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recomendador de Produtos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.4;
+    }
+    .product {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lista de Produtos</h1>
+  <div id="products"></div>
+
+  <h2>Recomendações para o usuário 1</h2>
+  <ul id="recommendations"></ul>
+
+  <script>
+    async function fetchProducts() {
+      const response = await fetch('http://localhost:5000/api/products');
+      const data = await response.json();
+      const container = document.getElementById('products');
+      data.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'product';
+        div.innerHTML = `<strong>${item.name}</strong> - ${item.category} - R$ ${item.price.toFixed(2)}`;
+        container.appendChild(div);
+      });
+    }
+
+    async function fetchRecommendations() {
+      const response = await fetch('http://localhost:5000/api/recommendations/1');
+      const data = await response.json();
+      const list = document.getElementById('recommendations');
+      data.recommendations.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} (Categoria: ${item.category})`;
+        list.appendChild(li);
+      });
+    }
+
+    // Executa as funções ao carregar a página
+    fetchProducts();
+    fetchRecommendations();
+  </script>
+</body>
+</html>
